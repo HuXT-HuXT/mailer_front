@@ -1,0 +1,19 @@
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.header__container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: darkgrey;
+}
+
+.header__title {
+  padding: 20px 0;
+  font-weight: 700;
+  font-size: 2.5em;
+  text-align: center;
+  text-shadow: 0 0 10px #fff;
+}
