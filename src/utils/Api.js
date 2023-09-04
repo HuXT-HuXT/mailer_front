@@ -8,6 +8,14 @@ export const getEvents = () => fetch(`${BASE_URL}/letters`, {
 })
   .then(handleResponse);
 
+export const getStatus = (id) => fetch(`${BASE_URL}/letters/${id}/status`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  }
+})
+  .then(handleResponse);
+
 const handleResponse = (response) => {
   if (response.ok) {
     return response.json();

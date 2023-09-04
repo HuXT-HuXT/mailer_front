@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@100;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .page {
@@ -16,6 +19,6 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   color: #000;
-  background-color: darkgrey;
+  background-color: rgb(210, 225, 255);
   opacity: 1;
 }

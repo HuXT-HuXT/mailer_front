@@ -4,15 +4,13 @@
 }
 
 .header__container {
-  position: fixed;
-  top: 0;
   width: 100%;
-  background-color: darkgrey;
+  background-color: rgb(178, 205, 255);
 }
 
 .header__title {
   padding: 20px 0;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 2.5em;
   text-align: center;
   text-shadow: 0 0 10px #fff;
