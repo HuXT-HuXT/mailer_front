@@ -1,17 +1,17 @@
 .grin-container {
   width: 100%;
-  min-height: 50vw;
+  /* min-height: 50vw; */
   padding: 50px 15px 15px;
   display: grid;
   grid-template-columns: 410px 410px 410px;
-  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(400px, 1fr));
   gap: 10px;
 }
 
 .card {
   position: relative;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

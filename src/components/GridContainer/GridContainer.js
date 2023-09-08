@@ -6,7 +6,7 @@ const GridContainer = ({ letters }) => {
     <section className='grin-container'>
       {letters.map(letter => {
         return (
-          <div key={letter.letter.uuid} className='card'>
+          <div key={letter.uuid} className='card'>
             <Card letter={letter} />
           </div>
         );
