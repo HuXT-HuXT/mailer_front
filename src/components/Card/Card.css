@@ -1,5 +1,5 @@
 .card__info {
-  width: 70%;
+  width: 60%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,40 @@
   font-weight: 700;
 }
 
+.card__buttons {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;  
+  gap: 30px;
+}
+
 .card__button {
+  width: 162px;
   padding: 10px 20px;
   background-color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 10px;  
   box-shadow: 0 0 5px beige;
+  text-align: center;  
+  font-size: .9em;
+  line-height: 1.1em;
+  opacity: 1;
+}
+
+.card__button:hover {
   cursor: pointer;
+  opacity: .85;
+}
+
+
+.card__button_green:hover {
+  box-shadow: 0 0 5px rgb(122, 255, 105);  
+}
+
+.card__button_red:hover {
+  box-shadow: 0 0 5px rgb(252, 57, 57);  
+}
+
+.card__button_disabled {
+  display: none;
 }
