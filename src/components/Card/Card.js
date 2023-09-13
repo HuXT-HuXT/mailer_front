@@ -100,8 +100,10 @@ const Card = ({ letter }) => {
   return (
     <>
       <div className='card__info'>
-        <p className='card__about'>{(letter.sendDatetime).split('T')[0]}</p>
-        <p className='card__about'>{status}</p>
+        <div className='card__about-part'>
+          <p className='card__about'>{(letter.sendDatetime).split('T')[0]}</p>
+          <p className='card__about'>{status}</p>
+        </div>
         <p className='card__title'>{letter.subject}</p>
       </div>
       <div className='card__buttons'>

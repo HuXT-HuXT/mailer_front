@@ -6,8 +6,15 @@
   gap: 5px;
 }
 
-.card__about {
+.card__about-part {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 5px;
+}
+
+.card__about {  
   font-size: 1em;
   line-height: 1.1em;
   font-weight: 400;
@@ -57,4 +64,91 @@
 
 .card__button_disabled {
   display: none;
+}
+
+@media screen and (max-width: 1160px) {
+  .card__info {
+    width: 53%;
+  }
+
+  .card__button {
+    font-size: .85em;
+    line-height: 1em;
+  }
+
+  .card__buttons {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .card__info {
+    width: 70%;
+  }
+
+ .card__buttons {
+    flex-direction: column;
+    align-items: end;  
+ }
+
+ .card__buttons {
+    width: 28%;
+    padding-left: 5px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card__buttons {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-around;    
+  }
+
+  .card__button {
+    width: 140px;
+    margin: 20px 0;
+    padding: 20px 10px;
+  }
+
+  .card__info {
+    width: 100%;
+  }
+
+  .card__about-part {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card__title {
+    margin-top: 15px;
+    padding: 10px 0;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .card__about-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;    
+    text-align: center;
+  }
+
+  .card__buttons {
+    width: 100%;    
+    padding: 0;
+    gap: 0;
+    flex-direction: column;    
+    align-items: center;
+  }
+
+  .card__button {
+    width: 100%;
+    font-size: .9em;
+  }
 }
