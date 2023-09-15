@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Card.css';
 import * as api from '../../utils/Api';
 
-const Card = ({ letter }) => {
+const Card = ({ letter, setLayout }) => {
   const [ buttonValue, setButtonValue ] = React.useState('Loading...');
   const [ status, setStatus ] = React.useState('Loading...');
   const [ disabledButton, setDisabledButton ] = React.useState(false);
@@ -94,7 +95,10 @@ const Card = ({ letter }) => {
         })
         .catch(err => console.log(err))
     }
+  }
 
+  const handlePreview = () => {
+    setLayout(letter);
   }
 
   return (
@@ -107,7 +111,9 @@ const Card = ({ letter }) => {
         <p className='card__title'>{letter.subject}</p>
       </div>
       <div className='card__buttons'>
-        <button className='card__button'>Просмотр макета</button>
+        <Link to={`/${letter.uuid}`}>
+          <button className='card__button' onClick={handlePreview}>Просмотр макета</button>
+        </Link>
         <button className={disabledButton ? `${buttonStyle} card__button_disabled` : `${buttonStyle}`} onClick={handleSendButton}>{buttonValue}</button>
       </div>
     </>

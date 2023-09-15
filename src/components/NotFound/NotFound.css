@@ -1,0 +1,36 @@
+.notfound {
+  width: 100%;
+  padding: 200px 0;
+  text-align: center;
+  color: darkred;
+}
+
+.notfound__number {  
+  font-size: 8em;
+  font-weight: 700;  
+}
+
+.notfound__text {
+  padding-bottom: 30px;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.notfound__button {
+  width: 162px;
+  padding: 10px 20px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;  
+  box-shadow: 0 0 5px beige;
+  text-align: center;  
+  font-size: .9em;
+  line-height: 1.1em;
+  opacity: 1;
+}
+
+.notfound__button:hover {
+  cursor: pointer;
+  opacity: .85;
+  box-shadow: 0 0 5px rgb(122, 255, 105);
+}
