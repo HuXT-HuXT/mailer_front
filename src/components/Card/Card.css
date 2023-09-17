@@ -6,6 +6,10 @@
   gap: 5px;
 }
 
+.card__info_wider {
+  width: 80%;
+}
+
 .card__about-part {
   width: 100%;
   display: flex;
@@ -14,7 +18,7 @@
   padding-bottom: 5px;
 }
 
-.card__about {  
+.card__about {
   font-size: 1em;
   line-height: 1.1em;
   font-weight: 400;
@@ -31,8 +35,12 @@
 .card__buttons {
   width: 40%;
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
   gap: 30px;
+}
+
+.card__buttons-narrow {
+  width: 20%;
 }
 
 .card__button {
@@ -40,9 +48,9 @@
   padding: 10px 20px;
   background-color: white;
   border: none;
-  border-radius: 10px;  
+  border-radius: 10px;
   box-shadow: 0 0 5px beige;
-  text-align: center;  
+  text-align: center;
   font-size: .9em;
   line-height: 1.1em;
   opacity: 1;
@@ -55,11 +63,11 @@
 
 
 .card__button_green:hover {
-  box-shadow: 0 0 5px rgb(122, 255, 105);  
+  box-shadow: 0 0 5px rgb(122, 255, 105);
 }
 
 .card__button_red:hover {
-  box-shadow: 0 0 5px rgb(252, 57, 57);  
+  box-shadow: 0 0 5px rgb(252, 57, 57);
 }
 
 .card__button_disabled {
@@ -88,7 +96,7 @@
 
  .card__buttons {
     flex-direction: column;
-    align-items: end;  
+    align-items: end;
  }
 
  .card__buttons {
@@ -103,7 +111,7 @@
     margin: 0 auto;
     padding: 0;
     flex-direction: row;
-    justify-content: space-around;    
+    justify-content: space-around;
   }
 
   .card__button {
@@ -135,15 +143,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;    
+    gap: 20px;
     text-align: center;
   }
 
   .card__buttons {
-    width: 100%;    
+    width: 100%;
     padding: 0;
     gap: 0;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
   }
 

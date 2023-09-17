@@ -2,14 +2,14 @@
   width: 100%;
   margin: 0 auto;
   padding: 50px 0;
-  display: flex;
-  flex-direction: column;
+  display: block;
+
   gap: 10px;
 }
 
 .layout__card {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   padding: 10px 20px;
   display: flex;
   gap: 3%;
@@ -18,10 +18,20 @@
   box-shadow: 0 0 10px beige;
 }
 
+.layout__letter-container {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.layout__letter {
+  width: 100%;
+  height: fit-content;
+}
+
 @media screen and (max-width: 960px) {
   .layout__card {
     gap: 0;
-    justify-content: space-between;   
+    justify-content: space-between;
   }
  }
 

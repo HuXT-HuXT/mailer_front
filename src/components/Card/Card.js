@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Card.css';
 import * as api from '../../utils/Api';
 
-const Card = ({ letter, setLayout }) => {
+const Card = ({ letter, setLayout, disablePreview }) => {
   const [ buttonValue, setButtonValue ] = React.useState('Loading...');
   const [ status, setStatus ] = React.useState('Loading...');
   const [ disabledButton, setDisabledButton ] = React.useState(false);
@@ -12,7 +12,7 @@ const Card = ({ letter, setLayout }) => {
 
   React.useEffect(() => {
     checkStatus(apiStatus)
-  }, []);  
+  }, []);
 
   const checkStatus = (status) => {
     if (status === 'DRAFT') {
@@ -67,15 +67,15 @@ const Card = ({ letter, setLayout }) => {
   }
 
   const handleSendButton = () => {
-    setButtonValue('Loading...');    
+    setButtonValue('Loading...');
     if (apiStatus === 'DRAFT') {
       api.scheduleCamp(letter.uuid)
-        .then((data) => {          
+        .then((data) => {
           if (data.meta.text === 'OK') {
             return api.getStatus(letter.uuid)
-              .then((data) => {                
+              .then((data) => {
                 setApiStatus(data.data.status);
-                checkStatus(data.data.status);                
+                checkStatus(data.data.status);
               })
               .catch(err => console.log(err))
           }
@@ -83,12 +83,12 @@ const Card = ({ letter, setLayout }) => {
         .catch(err => console.log(err))
     } else {
       api.removeCamp(letter.uuid)
-        .then((data) => {          
+        .then((data) => {
           if (data.meta.text === 'OK') {
             return api.getStatus(letter.uuid)
-              .then((data) => {                
+              .then((data) => {
                 setApiStatus(data.data.status);
-                checkStatus(data.data.status);                
+                checkStatus(data.data.status);
               })
               .catch(err => console.log(err))
           }
@@ -103,16 +103,16 @@ const Card = ({ letter, setLayout }) => {
 
   return (
     <>
-      <div className='card__info'>
+      <div className={disablePreview ? 'card__info card__info_wider' : 'card__info'}>
         <div className='card__about-part'>
-          <p className='card__about'>{(letter.sendDatetime).split('T')[0]}</p>
-          <p className='card__about'>{status}</p>
+          <div className='card__about'>{(letter.sendDatetime).split('T')[0]}</div>
+          <div className='card__about'>{status}</div>
         </div>
-        <p className='card__title'>{letter.subject}</p>
+        <div className='card__title'>{letter.subject}</div>
       </div>
-      <div className='card__buttons'>
-        <Link to={`/${letter.uuid}`}>
-          <button className='card__button' onClick={handlePreview}>Просмотр макета</button>
+      <div className={disablePreview ? 'card__buttons card__buttons-narrow' : 'card__buttons'}>
+        <Link to={`/letters/${letter.uuid}`}>
+          <button className={disablePreview ? `card__button card__button_disabled` : 'card__button'} onClick={handlePreview}>Просмотр макета</button>
         </Link>
         <button className={disabledButton ? `${buttonStyle} card__button_disabled` : `${buttonStyle}`} onClick={handleSendButton}>{buttonValue}</button>
       </div>
