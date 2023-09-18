@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Card.css';
 import * as api from '../../utils/Api';
 
-const Card = ({ letter, setLayout, disablePreview }) => {
+const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
   const [ buttonValue, setButtonValue ] = React.useState('Loading...');
   const [ status, setStatus ] = React.useState('Loading...');
   const [ disabledButton, setDisabledButton ] = React.useState(false);
@@ -11,7 +11,8 @@ const Card = ({ letter, setLayout, disablePreview }) => {
   const [ buttonStyle, setButtonStyle ] = React.useState('card__button card__button_green')
 
   React.useEffect(() => {
-    checkStatus(apiStatus)
+    
+    checkStatus(apiStatus);
   }, []);
 
   const checkStatus = (status) => {
@@ -67,7 +68,7 @@ const Card = ({ letter, setLayout, disablePreview }) => {
   }
 
   const handleSendButton = () => {
-    setButtonValue('Loading...');
+    setButtonValue('Loading...');    
     if (apiStatus === 'DRAFT') {
       api.scheduleCamp(letter.uuid)
         .then((data) => {
@@ -76,6 +77,7 @@ const Card = ({ letter, setLayout, disablePreview }) => {
               .then((data) => {
                 setApiStatus(data.data.status);
                 checkStatus(data.data.status);
+                updateLetter(data.data);
               })
               .catch(err => console.log(err))
           }
@@ -89,12 +91,13 @@ const Card = ({ letter, setLayout, disablePreview }) => {
               .then((data) => {
                 setApiStatus(data.data.status);
                 checkStatus(data.data.status);
+                updateLetter(data.data);
               })
               .catch(err => console.log(err))
           }
         })
         .catch(err => console.log(err))
-    }
+    }    
   }
 
   const handlePreview = () => {

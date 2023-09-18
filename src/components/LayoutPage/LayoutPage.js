@@ -3,12 +3,12 @@ import Card from '../Card/Card';
 import BackBar from '../BackBar/BackBar';
 import './LayoutPage.css';
 
-const LayoutPage = ({ letter }) => {
+const LayoutPage = ({ letter, updateLetter }) => {
 
   return (
     <section className='layout'>
       <div className='layout__card'>
-        <Card letter={letter} disablePreview={true} />
+        <Card letter={letter} disablePreview={true} updateLetter={updateLetter} />
       </div>
       <BackBar />
       <div className='layout__letter-container'>

@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import './FlexContainer.css'
 
-const FlexContainer = ({ letters, setLayout }) => {
+const FlexContainer = ({ letters, setLayout, updateLetter }) => {
 
 
   return (
@@ -9,7 +9,7 @@ const FlexContainer = ({ letters, setLayout }) => {
       {letters.map((letter) => {
           return (
             <div key={letter.uuid} className="card">
-              <Card letter={letter} setLayout={setLayout} disablePreview={false} />
+              <Card letter={letter} setLayout={setLayout} disablePreview={false} updateLetter={updateLetter} />
             </div>
           )
         })

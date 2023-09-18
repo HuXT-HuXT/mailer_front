@@ -25,7 +25,7 @@ function App() {
         })
       })
       .catch(err => console.log(err))
-  }, []);
+  }, []);  
 
   React.useEffect(() => {
     if (letters.length === 0) {
@@ -41,16 +41,20 @@ function App() {
   }, [letters]);
 
   const setLayout = (letter) => {
-    localStorage.setItem('letter', letter.uuid);
+    localStorage.setItem('letter', letter.uuid);    
     setSelectedLetter(letter);
   };
+
+  const updateLetter = (updatedLetter) => {
+    setLetters((state) => state.map((initialLetter) => initialLetter.uuid === updatedLetter.uuid ? updatedLetter : initialLetter));
+  }
 
   return (
     <div className="page">
       <Header />
       <Routes>
-        <Route exact path='/' element={<FlexContainer letters={ letters } setLayout={setLayout} />} />
-        <Route path={`/letters/${selectedLetter.uuid}`} element={loading ? <Loading /> : <LayoutPage letter={selectedLetter} /> }/>
+        <Route exact path='/' element={loading ? <Loading /> : <FlexContainer letters={ letters } setLayout={setLayout} updateLetter={updateLetter} />} />
+        {selectedLetter && <Route path={`/letters/${selectedLetter.uuid}`} element={loading ? <Loading /> : <LayoutPage letter={selectedLetter} updateLetter={updateLetter} /> }/>}
         <Route path='/*' element={loading ? <Loading /> : <NotFound />} />
       </Routes>
     </div>

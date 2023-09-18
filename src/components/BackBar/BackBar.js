@@ -7,7 +7,7 @@ const BackBar = () => {
 
   return (
     <section className='back-bar'>
-      <div className='back-bar__button' onClick={() => navigate(-1)}>{'< Назад'}</div>
+      <div className='back-bar__button' onClick={() => navigate(-1)}>{'< На главную'}</div>
     </section>
   )
 }
