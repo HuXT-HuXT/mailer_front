@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Card.css';
 import * as api from '../../utils/Api';
 
-const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
+const Card = ({ letter, disablePreview, updateLetter }) => {
   const [ buttonValue, setButtonValue ] = React.useState('Loading...');
   const [ status, setStatus ] = React.useState('Loading...');
   const [ disabledButton, setDisabledButton ] = React.useState(false);
@@ -11,7 +11,7 @@ const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
   const [ buttonStyle, setButtonStyle ] = React.useState('card__button card__button_green')
 
   React.useEffect(() => {
-    
+
     checkStatus(apiStatus);
   }, []);
 
@@ -68,7 +68,7 @@ const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
   }
 
   const handleSendButton = () => {
-    setButtonValue('Loading...');    
+    setButtonValue('Loading...');
     if (apiStatus === 'DRAFT') {
       api.scheduleCamp(letter.uuid)
         .then((data) => {
@@ -97,11 +97,7 @@ const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
           }
         })
         .catch(err => console.log(err))
-    }    
-  }
-
-  const handlePreview = () => {
-    setLayout(letter);
+    }
   }
 
   return (
@@ -115,7 +111,7 @@ const Card = ({ letter, setLayout, disablePreview, updateLetter }) => {
       </div>
       <div className={disablePreview ? 'card__buttons card__buttons-narrow' : 'card__buttons'}>
         <Link to={`/letters/${letter.uuid}`}>
-          <button className={disablePreview ? `card__button card__button_disabled` : 'card__button'} onClick={handlePreview}>Просмотр макета</button>
+          <button className={disablePreview ? `card__button card__button_disabled` : 'card__button'} >Просмотр макета</button>
         </Link>
         <button className={disabledButton ? `${buttonStyle} card__button_disabled` : `${buttonStyle}`} onClick={handleSendButton}>{buttonValue}</button>
       </div>

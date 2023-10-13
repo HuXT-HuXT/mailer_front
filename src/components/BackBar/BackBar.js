@@ -1,13 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './BackBar.css';
 
 const BackBar = () => {
-  const navigate = useNavigate();
 
   return (
     <section className='back-bar'>
-      <div className='back-bar__button' onClick={() => navigate(-1)}>{'< На главную'}</div>
+      <div className='back-bar__button' >
+        <a href='/' className='back-bar__link'>{'< На главную'}</a>
+      </div>
     </section>
   )
 }

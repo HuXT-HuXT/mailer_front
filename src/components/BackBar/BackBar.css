@@ -5,13 +5,16 @@
 
 .back-bar__button {
   padding-top: 15px;
+}
+
+.back-bar__link {
   font-size: 1em;
   font-weight: 400;
   color: darkred;
   opacity: 1;
 }
 
-.back-bar__button:hover {
+.back-bar__link:hover {
   cursor: pointer;
   opacity: .8;
   color: darkgreen;
